@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   Habitat.init({
     name: DataTypes.STRING,
     climate: {
-      type: DataTypes.ENUM('Tundra', 'Frozen Wasteland', 'Temperate Plains'),
+      type: DataTypes.ENUM('Tundra', 'Frozen Wasteland', 'Temperate Plains', 'In Captivity'),
       defaultValue: 'Frozen Wasteland'
     },
     pengId: {

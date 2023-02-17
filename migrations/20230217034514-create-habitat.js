@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       climate: {
-        type: Sequelize.ENUM('Tundra', 'Frozen Wasteland', 'Temperate Plains'),
+        type: Sequelize.ENUM('Tundra', 'Frozen Wasteland', 'Temperate Plains', 'In Captivity'),
         defaultValue: 'Frozen Wasteland'
       },
       pengId: {
