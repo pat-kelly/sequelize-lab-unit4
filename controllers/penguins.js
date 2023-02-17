@@ -12,7 +12,9 @@ const create = async(req, res) =>{
 
 const index = async(req, res) =>{
   try {
-    const pengs = await Penguin.findAll();
+    const pengs = await Penguin.findAll({
+      include: [{ model: Habitat, as: 'habitats' }]
+    });
     res.status(200).json(pengs);
   } catch (err) {
     res.status(500).json(err)
