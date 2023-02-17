@@ -6,4 +6,6 @@ router.get('/', pengCtrl.index);
 router.put('/:id', pengCtrl.update);
 router.delete('/:id', pengCtrl.delete);
 
+router.post('/:id/habitats', pengCtrl.addHabitat);
+
 module.exports = router;

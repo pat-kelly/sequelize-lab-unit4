@@ -1,4 +1,4 @@
-const { Penguin } = require('../models');
+const { Penguin, Habitat } = require('../models');
 
 const create = async(req, res) =>{
   try {
@@ -47,9 +47,20 @@ const delPenguin = async(req, res) =>{
   }
 }
 
+const addHabitat = async(req, res) =>{
+  try {
+    req.body.pengId = req.params.id;
+    const habitat = await Habitat.create(req.body);
+    res.status(200).json(habitat);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
   delete: delPenguin,
+  addHabitat,
 }
