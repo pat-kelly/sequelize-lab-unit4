@@ -3,6 +3,7 @@ const pengCtrl = require('../controllers/penguins.js');
 
 router.post('/', pengCtrl.create);
 router.get('/', pengCtrl.index);
-
+router.put('/:id', pengCtrl.update);
+router.delete('/:id', pengCtrl.delete);
 
 module.exports = router;

@@ -19,7 +19,37 @@ const index = async(req, res) =>{
   }
 }
 
+const update = async(req, res) =>{
+  try {
+    const peng = await Penguin.update(
+      req.body,
+      { where: {id: req.params.id }, returning: true }
+    )
+    res.status(200).json(peng);
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}
+
+const delPenguin = async(req, res) =>{
+  try {
+    // const numPengsRemoved = await Penguin.destroy(
+    //   {where: { id: req.params.id }}
+    // )
+    // res.status(200).json(numPengsRemoved);
+
+    const peng = await Penguin.findByPk(req.params.id);
+    await peng.destroy()
+    res.status(200).json(peng);
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+
 module.exports = {
   create,
   index,
+  update,
+  delete: delPenguin,
 }
