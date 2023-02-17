@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Penguin.hasMany(models.Habitat, {
+        foreignKey: 'pengId',
+        as: 'habitats'
+      })
     }
   }
   Penguin.init({

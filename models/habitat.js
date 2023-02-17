@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Habitat.belongsTo(models.Penguin, {
+        foreignKey: 'pengId',
+      })
     }
   }
   Habitat.init({
